@@ -1,0 +1,188 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Thai Union | Documents</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="icon" href="Content/LogoThaiUnion.png"/>
+<%--    <link rel="stylesheet" type="text/css" href="Content/Css/Appearance.css" />
+    <link href="Content/Css/Demo.css" rel="stylesheet" />--%>
+    <link type="text/css" rel="Stylesheet" href="Content/styles.css" />
+    <script type="text/javascript" src="Scripts/Site.js"></script>
+    <script src="Content/Scripts/Helper.js"></script>
+    <script src="Content/Scripts/Scripts.js"></script>
+    <style>
+        .custom-nav-bar {
+            padding: 0;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 450px;
+            background-color:transparent;
+            border-color:transparent;
+            font-style:normal;
+        }
+        .hide{ display: none; }
+    </style>
+</head>
+<body>
+        <form id="form1" runat="server">
+        <div class="MainPane">
+            <dx:ASPxPanel runat="server" ID="LeftPanel" ClientInstanceName="LeftPanel" FixedPosition="WindowLeft" 
+                FixedPositionOverlap="true" CssClass="LeftPanel" Collapsible="true" BackColor="WhiteSmoke">
+                <SettingsCollapsing ExpandEffect="Slide" ExpandButton-Visible="true" ExpandButton-GlyphType="Strips" />
+                <SettingsAdaptivity CollapseAtWindowInnerWidth="1023" />
+                <Styles>
+                    <ExpandBar CssClass="expandBar" />
+                    <ExpandedPanel CssClass="expandedPanel" />
+                </Styles>
+                <ClientSideEvents Collapsed="App.onLeftPanelCollapsed" />
+                <PanelCollection>
+                    <dx:PanelContent>
+                        <div class="LogoPane">
+                            <a class="LogoLink" href="Default.aspx">
+                                <dx:ASPxImage runat="server" ID="LogoImage" ImageUrl="~/Content/Images/MathIcons/DXLogo.png" ShowLoadingImage="true"></dx:ASPxImage>
+                            </a>
+                            <%--<dx:NavigationToolbar runat="server" />--%>
+                        </div>
+                        <div class="SidePane">
+                             <dx:ASPxTreeView ID="treeView" runat="server" AllowSelectNode="true" ForeColor="white">
+                                <Styles Node-ForeColor="White" />
+                                <Nodes>
+                                    <dx:TreeViewNode Text="Home">
+                                        <Nodes>
+                                            <dx:TreeViewNode Text="Pest Control" NavigateUrl="~/Default.aspx?viewMode=countEditForm"/>
+                                            <dx:TreeViewNode Text="NCP" NavigateUrl="~/Default.aspx?viewMode=LabForm"/>
+                                            <dx:TreeViewNode Text="Cooling Water" NavigateUrl="~/Default.aspx?viewMode=ResultForm"/>
+                                            <dx:TreeViewNode Text="RM Receiving" NavigateUrl="~/Default.aspx?viewMode=InprocessForm"/>
+                                        </Nodes>
+                                    </dx:TreeViewNode>
+                                    <dx:TreeViewNode Text="Products">
+                                        <Nodes>
+                                            <dx:TreeViewNode Text="Raw Material" NavigateUrl="~/Default.aspx?viewMode=SystCodeForm&param=RawMaterial"/>
+                                            <dx:TreeViewNode Text="Product Style" NavigateUrl="~/Default.aspx?viewMode=SystCodeForm&param=ProductStyle"/>
+                                            <dx:TreeViewNode Text="Media Type" NavigateUrl="~/Default.aspx?viewMode=SystCodeForm&param=MediaType"/>
+					                        
+					                        <dx:TreeViewNode Text="CanSize" NavigateUrl="~/Default.aspx?viewMode=SystCodeForm&param=CanSize"/>
+                                            <dx:TreeViewNode Text="ContainerLidType" NavigateUrl="~/Default.aspx?viewMode=SystCodeForm&param=ContainerLidType"/>
+                                            <dx:TreeViewNode Text="Grade" NavigateUrl="~/Default.aspx?viewMode=SystCodeForm&param=Grade"/>
+                                            <dx:TreeViewNode Text="Customer Brand" NavigateUrl="~/Default.aspx?viewMode=SystCodeForm&param=CustBrand"/>
+                                        </Nodes>
+                                    </dx:TreeViewNode>
+                                    <dx:TreeViewNode Text="Support">
+                                        <Nodes>
+                                            <dx:TreeViewNode Text="Analysis" NavigateUrl="~/Default.aspx?viewMode=SystCodeForm&param=Analysis"/>
+                                            <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=InstallArea" Text="InstallArea" />
+                                            <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=group" Text="Grouping" />
+                                            <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=user" Text="Authentication"/>
+                                            <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=NCPType" Text="NCPType"/>
+                                        </Nodes>
+                                    </dx:TreeViewNode>
+                                    <dx:TreeViewNode Text="Setup">
+                                        <Nodes>
+                                            <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=param" Text="parameter" />
+                                            <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=area" Text="Area"/>
+                                            <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=Plant" Text="Plant"/>
+                                            <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=Problem" Text="Problem"/>
+                                            <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=location" Text="Location"/>
+					    <dx:TreeViewNode NavigateUrl="~/RevenueByProduct.aspx?viewMode=user" Text="User"/>
+                                        </Nodes>
+                                    </dx:TreeViewNode>
+                                    <dx:TreeViewNode Text="Report">
+                                        <Nodes>
+                                            <dx:TreeViewNode NavigateUrl="~/Editform.aspx?viewMode=ReportForm" Text="ReportForm" />
+                                            <dx:TreeViewNode NavigateUrl="~/Editform.aspx?viewMode=chartsForm" Text="ChartsForm" />
+                                        </Nodes>
+                                    </dx:TreeViewNode>
+                                </Nodes>
+             
+                            </dx:ASPxTreeView>
+                            <%--<dx:ASPxNavBar ID="nbMain" runat="server" AllowSelectItem="true" EnableAnimation="true" CssClass="custom-nav-bar">
+                                    <Groups>
+                                        <dx:NavBarGroup NavigateUrl="~/Default.aspx?viewMode=LabForm" Text="NCP" />
+                                        <dx:NavBarGroup NavigateUrl="~/Default.aspx?viewMode=ResultForm" Text="Cooling Water" />
+                                        <dx:NavBarGroup Text="Product Code">
+                                            <Items>
+                                                <dx:NavBarItem NavigateUrl="~/Default.aspx?viewMode=SystCodeForm" Text="Media Type" />
+                                            </Items>
+                                        </dx:NavBarGroup>
+                                        <dx:NavBarGroup ItemImagePosition="Top" Text="Setup">
+                                            <Items>
+                                                <dx:NavBarItem NavigateUrl="~/RevenueByProduct.aspx?viewMode=user" Text="Authentication"/>
+                                            </Items>
+                                        </dx:NavBarGroup>
+                                    </Groups>
+                                    <GroupHeaderStyle BackColor="Transparent" HorizontalAlign="Left">
+                                        <BorderBottom BorderStyle="None"></BorderBottom>
+                                    </GroupHeaderStyle>
+                                </dx:ASPxNavBar>
+                            
+                            <dx:ASPxMenu ID="mainMenu" runat="server" CssClass="FilterMenu" Orientation="Vertical" Width="100%" DataSourceID="siteMapDataSource" 
+                                 AllowSelectItem="true" SelectParentItem="true" ClientInstanceName="mainMenu" Border-BorderColor="Transparent">
+                                <RootItemSubMenuOffset FirstItemY="1" />
+                                <ClientSideEvents ItemClick="OnMenuItemClick" />
+                                <ItemStyle CssClass="FilterItem">
+                                    <HoverStyle CssClass="FilterHoveredItem" />
+                                    <SelectedStyle CssClass="FilterSelectedItem" />
+                                </ItemStyle>
+                            </dx:ASPxMenu>
+                            <dx:ASPxSiteMapDataSource ID="siteMapDataSource" runat="server" SiteMapFileName="~/web.sitemap"/>--%>
+                        </div>
+                    </dx:PanelContent>
+                </PanelCollection>
+            </dx:ASPxPanel>
+            <dx:ASPxPanel runat="server" ID="TopPanel" ClientInstanceName="TopPanel" FixedPosition="WindowTop" CssClass="HeadPane">
+                <PanelCollection>
+                    <dx:PanelContent>
+                        <table class="HeadTable">
+                            <tr>
+                                <td class="ActionMenuContainer">
+                                 <dx:ActionToolbar runat="server" />   
+                                </td>
+                                <td class="UserMenuContainer">
+                                    <%--<div style="float:right">
+                                        <asp:LoginStatus ID="LoginStatus1" runat="server" ForeColor="Blue"  />&nbsp
+                                    </div>--%>
+                                    <dx:ASPxMenu runat="server" ID="UserMenu" CssClass="UserMenu" OnItemClick="UserMenu_ItemClick" ClientVisible="false" 
+                                        RightToLeft="True" AppearAfter="9999999" GutterWidth="0px">
+                                        <ItemStyle CssClass="UserMenuItem" HoverStyle-CssClass="UserMenuHoveredItem" />
+                                        <SubMenuStyle CssClass="UserSubMenu" />
+                                        <SubMenuItemStyle CssClass="UserSubMenuItem" HoverStyle-CssClass="UserSubMenuHoveredItem" />
+                                        <Items>
+                                            <dx:MenuItem Name="User">
+                                                <Image Url="Content/Images/icons8-customer-32.png" />
+                                                <Items>
+                                                    <dx:MenuItem Name="SignOut" Text="Sign Out"></dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                        </Items>
+                                        <ClientSideEvents ItemClick="App.onUserMenuItemClick" />
+                                    </dx:ASPxMenu>
+                                </td>
+                            </tr>
+                        </table>
+                    </dx:PanelContent>
+                </PanelCollection>
+            </dx:ASPxPanel>
+            <div class="ContentPane">
+                <dx:ASPxLoadingPanel runat="server" ID="LoadingPanel" ClientInstanceName="LoadingPanel" Modal="true">
+                    <LoadingDivStyle CssClass="LoadingDiv"></LoadingDivStyle>
+                    <Template>
+                        <img src="Content/Images/MathIcons/loading.gif"></img>
+                    </Template>
+                </dx:ASPxLoadingPanel>
+                <dx:ASPxCallbackPanel runat="server" ID="CallbackPanel" ClientInstanceName="CallbackPanel" CssClass="CallbackPanel">
+                    <SettingsLoadingPanel Enabled="false" />
+                    <ClientSideEvents BeginCallback="App.onControlBeginCallback" EndCallback="App.onControlEndCallback" />
+                    <PanelCollection>
+                        <dx:PanelContent>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                        </dx:PanelContent>
+                    </PanelCollection>
+                </dx:ASPxCallbackPanel>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="" title="Root">
+    <siteMapNode url="" title="Pest Control">
+      <siteMapNode url="~/Default.aspx?viewMode=countEditForm" title="InputData"/>
+      <siteMapNode url="" title="Setup">
+        <siteMapNode url="~/RevenueByProduct.aspx?viewMode=InstallArea" title="InstallArea"/>
+        <siteMapNode url="" title="Configuration">
+          <siteMapNode url="~/RevenueByProduct.aspx?viewMode=group" title="Grouping"/>
+          <siteMapNode url="~/RevenueByProduct.aspx?viewMode=param" title="Param"/>
+          <siteMapNode url="~/RevenueByProduct.aspx?viewMode=area" title="Area"/>
+		  <siteMapNode url="~/RevenueByProduct.aspx?viewMode=user" title="User"/>
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="" title="Report">
+        <siteMapNode url="~/Editform.aspx?viewMode=ReportForm" title="ReportForm" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="" title="Raw Material">
+      <siteMapNode url="~/Default.aspx?viewMode=InprocessForm" title="Inprocess"/>
+        <siteMapNode url="" title="Configuration">
+          <siteMapNode url="~/RevenueByProduct.aspx?viewMode=Supplier" title="Supplier"/>
+          <siteMapNode url="~/RevenueByProduct.aspx?viewMode=Packaging" title="Packaging"/>
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="" title="warehouse">
+      <siteMapNode url="~/Default.aspx?viewMode=OEEForm" title="OEEForm"/>
+      <siteMapNode url="" title="chart">
+        <siteMapNode url="~/Default.aspx?viewMode=chartsForm" title="ChartsForm" />
+      </siteMapNode>
+    </siteMapNode>
+  <siteMapNode url="" title="Lab">
+      <siteMapNode url="~/Default.aspx?viewMode=LabForm" title="NCP" />
+      <siteMapNode url="~/Default.aspx?viewMode=ResultForm" title="Cooling Water" />
+      <siteMapNode url="~/Default.aspx?viewMode=SystCodeForm" title="SysCode" />
+      <siteMapNode url="" title="Setup">
+        <siteMapNode url="~/RevenueByProduct.aspx?viewMode=user" title="Authentication"/>
+        <!--<siteMapNode url="~/RevenueByProduct.aspx?viewMode=param" title="Param"/>
+        <siteMapNode url="~/RevenueByProduct.aspx?viewMode=area" title="Area"/>-->
+      </siteMapNode>
+    </siteMapNode>
+    </siteMapNode>
+</siteMap>

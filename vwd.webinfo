@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<!-- 
+  Visual Studio global web project settings.
+-->
+<VisualWebDeveloper>
+
+  <comReferences>
+    <reference Name="interop.iwshruntimelibrary" ID="{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}\1.0\0"/>
+  </comReferences>
+</VisualWebDeveloper>

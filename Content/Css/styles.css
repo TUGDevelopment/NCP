@@ -1,0 +1,575 @@
+﻿/* Main */
+html, body, form
+{
+    margin: 0;
+}
+body 
+{
+    background: white;
+    color: Black;
+    /*font: 10px Century Gothic,Verdana, Geneva, sans-serif;
+    font-family: 'DB Adman X UltraLi';*/
+    overflow-y: hidden;
+}
+.someClass {
+    display: none;
+}
+.SidePane
+{
+    height: 100%;
+    min-height: 400px;
+}
+.calendar .SidePane
+{
+    min-height: 820px;
+}
+.contacts .SidePane
+{
+    min-height: 460px;
+}
+.feeds .SidePane
+{
+    min-height: 440px;
+}
+.feeds .SidePane .dxnb-header,
+.feeds .SidePane .dxnb-headerCollapsed,
+.contacts .SidePane .dxnb-header,
+.contacts .SidePane .dxnb-headerCollapsed
+{
+    border-left: 0!important;
+    border-right: 0!important;
+}
+.feeds .SidePane .dxnb-gr:first-child .dxnb-header,
+.feeds .SidePane .dxnb-gr:first-child .dxnb-headerCollapsed,
+.contacts .SidePane .dxnb-gr:first-child .dxnb-header,
+.contacts .SidePane .dxnb-gr:first-child .dxnb-headerCollapsed
+{
+    border-top: 0!important;
+}
+.feeds .SidePane .dxnb-content,
+.contacts .SidePane .dxnb-content
+{
+    border-left: 0!important;
+    border-right: 0!important;
+}
+.feeds .SidePane .dxnb-content
+{
+    border-bottom: 0!important;
+}
+.Logo
+{
+    height: 68px;
+    margin-top: -180px;
+}
+.Logo img 
+{
+    display: block;
+    margin: 0 auto;
+}
+
+.LeftPanel
+{
+    padding: 0!important;
+}
+.LeftPanel .dxpnl-acc
+{
+    height: 100%;
+}
+/* HeaderPane */
+.HeadPane
+{
+    height: 79px;
+    padding: 0!important;
+}
+.HeadPane .ActionToolbar,
+.HeadPane .NavigationToolbar
+{
+    width: 100%;
+    height: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.mail .HeadPane .NavigationToolbar,
+.contacts .HeadPane .NavigationToolbar,
+.feeds .HeadPane .NavigationToolbar
+{
+    min-width: 261px;
+}
+.mail .HeadPane .ActionToolbar 
+{
+    min-width: 512px;
+}
+.calendar .HeadPane .NavigationToolbar
+{
+    min-width: 299px;
+}
+.calendar .HeadPane .ActionToolbar 
+{
+    min-width: 238px;
+}
+.contacts .HeadPane .ActionToolbar 
+{
+    min-width: 425px;
+}
+.feeds .HeadPane .ActionToolbar 
+{
+    min-width: 383px;
+}
+.HeadPane .ActionToolbar > tbody > tr > td 
+{
+    padding: 0;
+}
+.HeadPane .ActionToolbar .Strut
+{
+    width: 100%;
+}
+.HeadPane .ActionToolbar .Spacer b
+{
+    display: block;
+    width: 1px;
+    height: 52px;
+}
+
+.HeadPane .dxm-main.NavigationMenu
+{
+    padding-left: 14px;
+}
+.HeadPane .dxm-main.ActionMenu
+{
+    padding-left: 15px;
+}
+.HeadPane .dxm-main.InfoMenu
+{
+    padding-right: 14px;
+}
+
+.HeadPane .NavigationMenu.dxm-main .dxm-item,
+.HeadPane .NavigationMenu.dxm-main .dxm-item.dxm-hovered
+{
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.HeadPane .NavigationMenu,
+.HeadPane .NavigationMenu.dxm-main,
+.HeadPane .NavigationMenu.dxm-main .dxm-item,
+.HeadPane .NavigationMenu.dxm-main .dxm-content,
+.HeadPane .ActionMenu,
+.HeadPane .ActionMenu.dxm-main,
+.HeadPane .InfoMenu,
+.HeadPane .InfoMenu.dxm-main
+{
+    background: transparent;
+}
+
+.PrintHeadPane
+{
+    padding: 4px 0!important;
+}
+.PrintHeadPane .ReportToolbarContainer
+{
+    position: relative;
+    float: left;
+    left: 50%;
+}
+.PrintHeadPane .dxm-ltr
+{
+    margin-left: -50%;
+}
+.PrintHeadPane > div
+{
+    overflow: visible;
+}
+.PrintHeadPane .ReportToolbar
+{
+    border: 0!important;
+    background: none!important;
+}
+
+.ActionToolbar .SearchBox
+{
+    margin-top: 1px;
+    margin: 0 23px;
+    padding-left: 5px;
+    border-collapse: separate!important;
+}
+.ActionToolbar .SearchBoxButton
+{
+    background: White!important;
+    border-color: White!important;
+}
+
+.Landscape .ActionToolbar .SearchBox 
+{
+    width: 220px;
+}
+.Portrait .ActionToolbar .SearchBox
+{
+    width: 145px!important;
+}
+
+/* Mail */
+
+.dxgv 
+{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#ContactForm .dxeTextBoxSys,
+#ContactForm .dxeButtonEditSys
+{
+    height: 30px;
+}
+
+#ContactForm .dxeTextBoxSys.dxeTextBox_Moderno,
+#ContactForm .dxeTextBoxSys.dxeTextBox_Mulberry,
+#ContactForm .dxeButtonEditSys.dxeTextBox_Moderno,
+#ContactForm .dxeButtonEditSys.dxeTextBox_Mulberry
+{
+    height: 34px;
+}
+
+#ContactCardView .dxflCLTSys td,
+#ContactCardView .dxflVATSys 
+{
+    padding: 0;
+}
+
+#ContactCardView .dxflGroupBoxSys
+{
+    margin: 0;
+}
+
+.MailTree 
+{
+    margin-top: 10px;
+}
+#MailTree .unread,
+#MailGrid .unread 
+{
+    font-weight: bold;
+}
+
+.MailPreviewPanel,
+.FeedItemPreviewPanel
+{
+    overflow: auto;
+}
+.MailPreviewPanel .MailPreview,
+.FeedItemPreviewPanel .FeedPreview
+{
+    padding: 22px;
+}
+
+.MailPreviewPanel .MailPreview .Subject,
+.FeedItemPreviewPanel .FeedPreview .Subject
+{
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+.MailPreviewPanel .MailPreview .Info,
+.FeedItemPreviewPanel .FeedPreview .Info
+{
+    color: #8C8C8C;
+    padding-bottom: 22px;
+}
+.FeedItemPreviewPanel .FeedPreview .Info a
+{
+    margin-left: 13px;
+}
+.MailPreviewPanel .MailPreview .Separator,
+.FeedItemPreviewPanel .FeedPreview .Separator
+{
+    background: #DEDEDE;
+    height: 1px;
+}
+.MailPreviewPanel .MailPreview .Body,
+.FeedItemPreviewPanel .FeedPreview .Body
+{
+    padding-top: 10px;
+}
+
+#MailForm 
+{
+    padding: 18px;
+}
+#MailForm .LayoutTable
+{
+    width: 100%;
+    border-spacing: 0;
+}
+#MailForm .LayoutTable > tbody > tr > td 
+{
+    padding: 0;
+}
+#MailForm .Editor
+{
+    width: 100%;
+}
+#MailForm .Label 
+{
+    padding-right: 13px !important;
+}
+#MailForm .Separator
+{
+    height: 6px;
+}
+
+#AddressBookButton 
+{
+    white-space: nowrap;
+    margin-left: 8px;
+}
+.AddressBookList
+{
+    padding: 10px 0 30px;
+}
+.AddressBookPopupButton
+{
+    float: right;
+    margin: 9px 9px 9px 0;
+}
+
+/* Calendar */
+.DateNavigatorContainer
+{
+    padding: 25px 0;
+    background: White;
+}
+.DateNavigator 
+{
+    margin: 0 auto;
+}
+
+/* Contacts */
+
+.ContactsNavArea 
+{
+    height: 100%;
+}
+.ContactsNavArea .field
+{
+    float: left;
+    clear: both;
+    width: 100%;
+    padding: 5px 0;
+}
+.ContactsNavArea .field .label
+{
+    float: left;
+    padding-left: 18px;
+    width: 78px;
+}
+.ContactsNavArea .field .editor
+{
+    float: left;
+    white-space: nowrap;
+    overflow: auto;
+}
+.ContactsNavArea .field .label
+{
+    padding-top: 3px;
+}
+.CommandItems img 
+{
+    margin: 5px 8px 0 8px;
+}
+
+.ContactCard 
+{
+    height: 200px;
+    width: 420px;
+}
+
+.Info .dxflNotFloatedElSys
+{
+    max-width: 190px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@media (max-width: 1190px)
+{
+    .ContactCard 
+    {
+        height: 340px;
+        width: 320px;
+    }
+}
+
+
+.Landscape #ContactForm > table
+{
+    padding: 40px 0;
+}
+.Portrait #ContactForm > table
+{
+    padding: 10px 0;
+}
+.Landscape #ContactForm .InfoLayoutGroup > div
+{
+    width: 250px;
+}
+.Portrait #ContactForm .InfoLayoutGroup > div
+{
+    width: 250px;
+}
+.Landscape #ContactForm .PhotoLayoutGroup > div
+{
+    width: 400px;
+}
+.Portrait #ContactForm .PhotoLayoutGroup > div
+{
+    width: 300px;
+}
+.Landscape #ContactForm .EmptyLayoutItem > div
+{
+    width: 70px;
+}
+.Portrait #ContactForm .EmptyLayoutItem > div
+{
+    width: 0px;
+}
+
+.print .Report 
+{
+    margin: 0 auto;
+}
+
+.clear 
+{
+	clear: both;
+	height: 0;
+	width: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+#CollapsePaneImage 
+{
+    margin-top: 3px;
+}
+#ExpandPaneImage
+{
+    margin-top: 6px;
+}
+
+/* Themes */
+.Sprite_Theme_DevEx,
+.Sprite_Theme_Office2010Black,
+.Sprite_Theme_Office2010Blue,
+.Sprite_Theme_Office2010Silver,
+.Sprite_Theme_Metropolis,
+.Sprite_Theme_MetropolisBlue,
+.Sprite_Theme_Moderno,
+.Sprite_Theme_iOS,
+.Sprite_Theme_Material,
+.Sprite_Theme_Aqua,
+.Sprite_Theme_Mulberry,
+.Sprite_Theme_Glass,
+.Sprite_Theme_BlackGlass,
+.Sprite_Theme_PlasticBlue,
+.Sprite_Theme_RedWine,
+.Sprite_Theme_SoftOrange,
+.Sprite_Theme_Youthful,
+.Sprite_Theme_Office2003Blue,
+.Sprite_Theme_Office2003Olive,
+.Sprite_Theme_Office2003Silver,
+.Sprite_Theme_Default
+{
+    background-image: none;
+    background-repeat: no-repeat;
+    border: 1px solid white!important;
+    width: 14px;
+    height: 14px;
+}
+
+.Sprite_Theme_DevEx
+{
+    background-color: #CDCCF5;
+}
+.Sprite_Theme_Office2010Black
+{
+    background-color: #474747;
+}
+.Sprite_Theme_Office2010Blue
+{
+    background-color: #B5CCE5;
+}
+.Sprite_Theme_Office2010Silver
+{
+    background-color: #E7EAEF;
+}
+.Sprite_Theme_Metropolis
+{
+    background-color: #7F7F7F;
+}
+.Sprite_Theme_MetropolisBlue
+{
+    background-color: #0072C6;
+}
+.Sprite_Theme_Moderno
+{
+    background-color: #1279c0;
+}
+.Sprite_Theme_iOS
+{
+    background-color: #007bf7;
+}
+.Sprite_Theme_Material
+{
+    background-color: #009688;
+}
+.Sprite_Theme_Aqua
+{
+    background-color: #96B9EC;
+}
+.Sprite_Theme_Mulberry
+{
+    background-color: #BF4E6A;
+}
+.Sprite_Theme_Glass
+{
+    background-color: #C8DDE8;
+}
+.Sprite_Theme_BlackGlass
+{
+    background-color: #4D5A63;
+}
+.Sprite_Theme_PlasticBlue
+{
+    background-color: #5066B3;
+}
+.Sprite_Theme_RedWine
+{
+    background-color: #8A0E3C;
+}
+.Sprite_Theme_SoftOrange
+{
+    background-color: #F06F30;
+}
+.Sprite_Theme_Youthful
+{
+    background-color: #9CC524;
+}
+.Sprite_Theme_Office2003Blue
+{
+    background-color: #B5CEF2;
+}
+.Sprite_Theme_Office2003Olive
+{
+    background-color: #D4DEB6;
+}
+.Sprite_Theme_Office2003Silver
+{
+    background-color: #D1D1E0;
+}
+.Sprite_Theme_Default
+{
+    background-color: #DCDCDC;
+}

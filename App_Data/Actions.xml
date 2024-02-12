@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <form>
+    <Item ToolTip="Back" Name="back" ImageUrl="~/Content/Images/icons8-back-32.png" />
+    <Item ToolTip="New" Name="New" ImageUrl="~/Content/Images/icons8-plus-32.png" />
+    <!--<Item ToolTip="Send" Name="send" SpriteClassName="Sprite_SendMail" />-->
+    <Item ToolTip="Save to drafts" Name="save" ImageUrl="~/Content/Images/icons8-save-32.png" />
+    
+    <Item ToolTip="Delete" Name="Delete" ImageUrl="~/Content/Images/icons8-delete-32.png" />
+    <Item ToolTip="scan" Name="scan" ImageUrl="~/Content/Images/icons8-barcode-scanner-32.png" />
+    <Item ToolTip="Filter" Name="Filter" ImageUrl="~/Content/Images/icons8-find-and-replace-32.png" />
+    <Item ToolTip="ExportToXLS" Name="ExportToXLS" ImageUrl="~/Content/Images/icons8-microsoft-excel-32.png" />
+    <Item ToolTip="Approve" Name="Approve" ImageUrl="~/Content/Images/icons8-ok-32.png" />
+    <Item ToolTip="Reject" Name="Reject" ImageUrl="~/Content/Images/icons8-delete-32.png" />
+  </form>
+</Pages>

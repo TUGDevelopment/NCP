@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+<products>
+  <product name="Details" text="Details" id="0"></product>
+  <product name="Upload" text="Upload" id="1"></product>
+</products>
+<forms>
+  <form name="RawMaterial" text="Raw Material Description" id="0"></form>
+  <form name="Container" text="Picture of container" id="1"></form>
+  <form name="Temp" text="Fish temperature(0°C)" id="2"></form>
+  <form name="Weight" text="Weight of fish(Gram;G.)" id="3"></form>
+  <form name="Sensory" text="Sensory" id="4"></form>
+  <form name="Formalin" text="Formalin" id="5"></form>
+  <form name="Appearance" text="Appearance" id="6"></form>
+  <form name="Uniformity" text="Uniformity" id="7"></form>
+ </forms>
+ <tabs>
+    <tab name="LineInput" text="Inkjet/Pump" id="0"></tab>
+    <tab name="OEE" text="OEE" id="1"></tab>
+    <tab name="Component" text="Component" id="2"></tab>
+    <tab name="Goods_Receipts" text="Goods Receipts" id="3"></tab>
+  </tabs>
+  <items>
+    <item name="Plan" text="Plan" id="0"></item>
+    <item name="Downtime loss(A)" text="Downtime loss(A)" id="0"></item>
+    <item name="Performance(P)" text="Performance(P)" id="0"></item>
+    <item name="Defect loss(Q)" text="Defect loss(Q)" id="1"></item>
+  </items>
+  <labs>
+    <lab name="Details" text="Details" id="0"/>
+    <lab name="Att" text="Attached file" id="1"/>
+    <lab name="Log" text="Log" id="2"/>
+  </labs>
+</Pages>
