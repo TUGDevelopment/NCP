@@ -316,3 +316,7 @@ SendToCSV/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 .vs/NCP/v16/.suo
 .vs/lims/v16/.suo
 /.vs
+.vs/lims/v16/.suo
+SendToCSV/bin/Debug/SendToCSV.exe.manifest
+SendToCSV/obj/Debug/SendToCSV.exe.manifest
+SendToCSV/obj/Debug/SendToCSV.csproj.AssemblyReference.cache
