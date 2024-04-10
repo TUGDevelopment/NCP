@@ -19,3 +19,4 @@ D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.exe.manifest
 D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.application
 D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.exe
 D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.pdb
+D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.csproj.AssemblyReference.cache
