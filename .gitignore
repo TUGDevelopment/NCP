@@ -22,9 +22,13 @@ bld/
 [Oo]bj/
 [Ll]og/
 
+# Build results SentToCSV
+SendToCSV/bin/[Dd]ebug/
+SendToCSV/obj/[Dd]ebug/
+
 # Visual Studio 2015 cache/options directory
 .vs/
-*.sou
+.vs/lims/v16/*.sou
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
