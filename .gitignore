@@ -314,3 +314,14 @@ SendToCSV/obj/Debug/SendToCSV.csproj.FileListAbsolute.txt
 SendToCSV/obj/Debug/SendToCSV.csproj.FileListAbsolute.txt
 /SendToCSV/obj/Debug
 *.txt
+
+SendToCSV/obj/Debug/SendToCSV.csproj.AssemblyReference.cache
+SendToCSV/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
+.vs/NCP/v16/.suo
+.vs/lims/v16/.suo
+SendToCSV/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+SendToCSV/obj/Debug/SendToCSV.csproj.AssemblyReference.cache
+/SendToCSV/obj/Debug
+/.vs
