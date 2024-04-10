@@ -9,3 +9,14 @@ D:\inetpub\wwwroot\LIMS_DEV\SendToCSV\bin\Debug\SendToCSV.exe.manifest
 D:\inetpub\wwwroot\LIMS_DEV\SendToCSV\bin\Debug\SendToCSV.application
 D:\inetpub\wwwroot\LIMS_DEV\SendToCSV\obj\Debug\SendToCSV.exe.manifest
 D:\inetpub\wwwroot\LIMS_DEV\SendToCSV\obj\Debug\SendToCSV.application
+D:\Andy\Github\TUG\NCP\SendToCSV\bin\Debug\SendToCSV.exe.config
+D:\Andy\Github\TUG\NCP\SendToCSV\bin\Debug\SendToCSV.exe.manifest
+D:\Andy\Github\TUG\NCP\SendToCSV\bin\Debug\SendToCSV.application
+D:\Andy\Github\TUG\NCP\SendToCSV\bin\Debug\SendToCSV.exe
+D:\Andy\Github\TUG\NCP\SendToCSV\bin\Debug\SendToCSV.pdb
+D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.csproj.AssemblyReference.cache
+D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.csproj.CoreCompileInputs.cache
+D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.exe.manifest
+D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.application
+D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.exe
+D:\Andy\Github\TUG\NCP\SendToCSV\obj\Debug\SendToCSV.pdb

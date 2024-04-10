@@ -293,3 +293,6 @@ __pycache__/
 *.xsd.cs
 .vs/lims/v16/.suo
 /.vs/lims/v16
+/SendToCSV/bin/Debug
+/SendToCSV/obj/Debug
+/SendToCSV/obj/Debug
