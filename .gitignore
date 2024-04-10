@@ -296,3 +296,17 @@ __pycache__/
 /SendToCSV/bin/Debug
 /SendToCSV/obj/Debug
 /SendToCSV/obj/Debug
+/SendToCSV/bin/Debug/app.publish
+/SendToCSV/bin/Debug
+*.application
+SendToCSV/bin/Debug/app.publish/SendToCSV.exe
+SendToCSV/bin/Debug/SendToCSV.application
+SendToCSV/bin/Debug/SendToCSV.exe
+SendToCSV/bin/Debug/SendToCSV.exe.manifest
+SendToCSV/bin/Debug/SendToCSV.pdb
+SendToCSV/obj/Debug/SendToCSV.application
+SendToCSV/obj/Debug/SendToCSV.csproj.AssemblyReference.cache
+SendToCSV/obj/Debug/SendToCSV.csproj.FileListAbsolute.txt
+SendToCSV/obj/Debug/SendToCSV.exe
+SendToCSV/obj/Debug/SendToCSV.exe.manifest
+SendToCSV/obj/Debug/SendToCSV.pdb
