@@ -292,3 +292,4 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 .vs/lims/v16/.suo
+/.vs/lims/v16
