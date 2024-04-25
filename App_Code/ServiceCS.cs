@@ -43,6 +43,48 @@ public class ServiceCS : System.Web.Services.WebService
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
     }
+    [WebMethod]
+    public void BuildCertEU()
+    {
+        string file = @"D:\SAPInterfaces\Outbound\ZTHWM_SL028_CERT_UPDT_" + DateTime.Now.ToString("yyyyMMddhhmm") + ".csv";
+        DataTable dt = new DataTable();
+        dt.Columns.AddRange(new DataColumn[] { new DataColumn(string.Format(@"{0}", "Material NumberT_CERT-MATNR")),
+            new DataColumn(string.Format(@"{0}","Batch NumberT_CERT-CHARG")),
+            new DataColumn(string.Format(@"{0}","PlantT_CERT-WERKS")),
+            new DataColumn(string.Format(@"{0}","Invoice NO.T_CERT-INVNO")),
+            new DataColumn(string.Format(@"{0}","Date of ManufactureT_CERT-HSDAT")),
+            new DataColumn(string.Format(@"{0}","Production/inspection memoT_CERT-FERTH")),
+            new DataColumn(string.Format(@"{0}","QuantityT_CERT-MENGE")),
+            new DataColumn(string.Format(@"{0}","Base Unit of MeasureT_CERT-MEINS")),
+            new DataColumn(string.Format(@"{0}","Vessel NO.T_CERT-VESSL")),
+            new DataColumn(string.Format(@"{0}","FAOT_CERT-FAO")),
+            new DataColumn(string.Format(@"{0}","AgingT_CERT-AGING")),
+            new DataColumn(string.Format(@"{0}","StatusT_CERT-PSTAT")),
+            });									
+
+        var Results = new DataTable();//
+        SqlParameter[] param = { new SqlParameter("@user", string.Format("{0}", CurUserName)) };
+        Results = cs.GetRelatedResourcesDb("spSQLinterfaceCertEU", param);
+        foreach (DataRow row in Results.Rows)
+        {
+            dt.Rows.Add(string.Format("{0}", row["Material"].ToString()),
+            string.Format("{0}", row["Batch"].ToString()),
+            string.Format("{0}", row["Plant"].ToString()),
+            string.Format("{0}", row["InvoiceNo"].ToString()),
+            string.Format("{0}", row["DateOfManuf"].ToString()),
+            string.Format("{0}", row["Production"].ToString()),
+            string.Format("{0}", row["Quantity"].ToString()),
+            string.Format("{0}", row["BaseUoM"].ToString()),
+            string.Format("{0}", row["Vessel"].ToString()),
+            string.Format("{0}", row["FAO"].ToString()),
+            row["Aging"].ToString(),
+            row["StatusApp"].ToString());
+        }
+        
+        cs.ToCSV(dt.Select("[Plant T_CERT-WERKS]='1021'").CopyToDataTable(), file);
+        cs.ToCSV(dt.Select("[Plant T_CERT-WERKS]='1022'").CopyToDataTable(), @"D:\SAPInterfaces\Outbound\ZTHWM_SL028_CERT1022_UPDT_" + DateTime.Now.ToString("yyyyMMddhhmm") + ".csv");
+    }
+
     private void lineNotify(string msg)
     {
         string token = "9IBnp37LVHj0a6W5HLq2dF7sqIjGyEVn2DQtpQq7wYv";
@@ -144,20 +186,72 @@ public class ServiceCS : System.Web.Services.WebService
         var Results = new DataTable();//spGetHistory
         SqlParameter[] param = { new SqlParameter("@user", string.Format("{0}", CurUserName)) };
         Results = cs.GetRelatedResources("spSQLinterfaceWinDel", param);
+        //string file = HttpContext.Current.Server.MapPath("~/ExcelFiles/ZTHWM_SL020_NCP_DELETE" + "_" + DateTime.Now.ToString("yyyyMMddhhmm") + ".csv");
+        string file = @"D:\SAPInterfaces\Outbound\ZTHWM_SL020_NCP_DEL" + "_" + DateTime.Now.ToString("yyyyMMddhhmm") + ".csv";
+        //HttpContext.Current.Server.MapPath("~/ExcelFiles/VK11_" ;
+        //MyDataModule.ToCSV(Results, file);
+        DataTable dt = new DataTable();
+        dt.Columns.AddRange(new DataColumn[] { new DataColumn(string.Format(@"{0}", "Material NumberT_NCP-MATNR")),
+            new DataColumn(string.Format(@"{0}","PlantT_NCP-WERKS")),
+            new DataColumn(string.Format(@"{0}","Batch NumberT_NCP-CHARG")),
+            new DataColumn(string.Format(@"{0}","NCP CodeT_NCP-NCPCD")),
+            });
+        foreach (DataRow row in Results.Rows)
+        {
+            dt.Rows.Add(string.Format("{0}", row["material"].ToString()),
+            string.Format("{0}", row["Plant"].ToString()),
+            string.Format("{0}", row["Batchsap"].ToString()),
+            row["NCPID"].ToString());
+        }
+        cs.ToCSV(dt, file);
+
         foreach (DataRow row in Results.Rows)
         {
             var i = col++;
-            worksheet.Cell("B" + i).Value = string.Format("'{0}", row["material"].ToString());
-            worksheet.Cell("C" + i).Value = string.Format("'{0}", row["Plant"].ToString());
-            worksheet.Cell("D" + i).Value = string.Format("'{0}", row["Batchsap"].ToString());
-            worksheet.Cell("E" + i).Value = string.Format("'{0}", row["NCPID"].ToString());
+            worksheet.Cell("B" + i).Value = string.Format("{0}", row["material"].ToString());
+            worksheet.Cell("C" + i).Value = string.Format("{0}", row["Plant"].ToString());
+            worksheet.Cell("D" + i).Value = string.Format("{0}", row["Batchsap"].ToString());
+            worksheet.Cell("E" + i).Value = string.Format("{0}", row["NCPID"].ToString());
         }
         //workbook.SaveAs(@"C:\temp\HelloWorld.xlsx");
-        workbook.SaveAs(@"C:\\Users\fo5910155\Documents\Winshuttle\Studio\Data\ZTHWM_SL020_NCP_UPDATE_20180621_141014.xlsx");
+        //workbook.SaveAs(@"C:\\Users\fo5910155\Documents\Winshuttle\Studio\Data\ZTHWM_SL020_NCP_UPDATE_20180621_141014.xlsx");
         ExportToresult(Data);
+        BuildCertEU();
         //Server.MapPath("~/App_Data/Documents/HelloWorld.xlsx"));
         Context.Response.Write(Data);
     }
+    //public void ExportToDel(string Data)
+    //{
+    //    var workbook = new XLWorkbook(); int col = 2;
+    //    //col = 4;
+    //    //string[] array = { "zpm1", "", "X", "103","ex","203" };
+    //    var worksheet = workbook.Worksheets.Add("ZTHWM_NCP_DELETE");
+    //    //worksheet.Cell("D2").Value = "zpm1";
+    //    //worksheet.Cell("F2").Value = "X";
+    //    //worksheet.Cell("G2").Value = "103";
+    //    //worksheet.Cell("H2").Value = "ex";
+    //    //worksheet.Cell("I2").Value = "203";
+    //    //for (int i = 3; i < 4; i++) {
+    //    //worksheet.Range("C2:I2").CopyTo(worksheet.Range("C2:I2".Replace("2",i.ToString()))); 
+    //    //worksheet.Cell("F"+i).Value = "X";
+    //    //}
+    //    var Results = new DataTable();//spGetHistory
+    //    SqlParameter[] param = { new SqlParameter("@user", string.Format("{0}", CurUserName)) };
+    //    Results = cs.GetRelatedResources("spSQLinterfaceWinDel", param);
+    //    foreach (DataRow row in Results.Rows)
+    //    {
+    //        var i = col++;
+    //        worksheet.Cell("B" + i).Value = string.Format("'{0}", row["material"].ToString());
+    //        worksheet.Cell("C" + i).Value = string.Format("'{0}", row["Plant"].ToString());
+    //        worksheet.Cell("D" + i).Value = string.Format("'{0}", row["Batchsap"].ToString());
+    //        worksheet.Cell("E" + i).Value = string.Format("'{0}", row["NCPID"].ToString());
+    //    }
+    //    //workbook.SaveAs(@"C:\temp\HelloWorld.xlsx");
+    //    workbook.SaveAs(@"C:\\Users\fo5910155\Documents\Winshuttle\Studio\Data\ZTHWM_SL020_NCP_UPDATE_20180621_141014.xlsx");
+    //    ExportToresult(Data);
+    //    //Server.MapPath("~/App_Data/Documents/HelloWorld.xlsx"));
+    //    Context.Response.Write(Data);
+    //}
     void ExportToresult(string Data)
     {
         var workbook = new XLWorkbook(); int col = 2;
@@ -166,19 +260,57 @@ public class ServiceCS : System.Web.Services.WebService
         var Results = new DataTable();//spGetHistory
         SqlParameter[] param = { new SqlParameter("@user", string.Format("{0}", CurUserName)) };
         Results = cs.GetRelatedResources("spSQLinterfaceWinCreate", param);
+        //string file = HttpContext.Current.Server.MapPath("~/ExcelFiles/ZTHWM_SL020_NCP_UPDATE" + "_" + DateTime.Now.ToString("yyyyMMddhhmm") + ".csv");
+        string file = @"D:\SAPInterfaces\Outbound\ZTHWM_SL020_NCP_UPDT" + "_" + DateTime.Now.ToString("yyyyMMddhhmm") + ".csv";
+        //HttpContext.Current.Server.MapPath("~/ExcelFiles/VK11_" ;
+        //MyDataModule.ToCSV(Results, file);
+        DataTable dt = new DataTable();
+        dt.Columns.AddRange(new DataColumn[] { new DataColumn(string.Format(@"[{0}]","Material NumberT_NCP-MATNR")),
+            new DataColumn(string.Format(@"{0}", "PlantT_NCP-WERKS")),
+            new DataColumn(string.Format(@"{0}","Batch NumberT_NCP-CHARG")),
+            new DataColumn(string.Format(@"{0}","NCP CodeT_NCP-NCPCD")),
+            new DataColumn(string.Format(@"{0}","Result FlagT_NCP-RESLT")),
+
+            new DataColumn(@"T_NCP-CRDAT"),
+            new DataColumn(@"T_NCP-CRTIM"),
+            new DataColumn(@"T_NCP-CHDAT"),
+            new DataColumn(@"T_NCP-CHTIM"),
+            new DataColumn(string.Format(@"{0}","NCP First DecisionT_NCP-TXFST")),
+
+            new DataColumn(string.Format(@"{0}","NCP Result DecisionT_NCP-TXRES")),
+            new DataColumn(string.Format(@"{0}","NCP ProblemT_NCP-TXPRB")),
+            new DataColumn(string.Format(@"{0}","NCP RemarkT_NCP-TXRMK")),
+            });
+        foreach (DataRow row in Results.Rows)
+        {
+            dt.Rows.Add(string.Format("{0}", row["material"].ToString()),
+            string.Format("{0}", row["Plant"].ToString()),
+            string.Format("{0}", row["Batchsap"].ToString()),
+            row["NCPID"].ToString(),
+            row["Decision"].ToString() != "" || row["FirstDecision"].ToString() != "" ? "P" : "",
+            string.Format("{0}", row["DateFirstDecision"].ToString()),
+            row["TimeFirstDecision"].ToString(),
+            string.Format("{0}", row["DateDecision"].ToString()).Replace('/', '.'),
+            row["TimeDecision"].ToString(),
+            row["FirstDecision"].ToString(),
+            row["Decision"].ToString(),
+            row["Problem"].ToString(),
+            row["Remark"].ToString());
+        }
+        cs.ToCSV(dt, file);
         worksheet.Column(7).Width = 20;
         foreach (DataRow row in Results.Rows)
         {
             var i = col++;
-            worksheet.Cell("B" + i).Value = string.Format("'{0}", row["material"].ToString());
-            worksheet.Cell("C" + i).Value = string.Format("'{0}", row["Plant"].ToString());
-            worksheet.Cell("D" + i).Value = string.Format("'{0}", row["Batchsap"].ToString());
+            worksheet.Cell("B" + i).Value = string.Format("{0}", row["material"].ToString());
+            worksheet.Cell("C" + i).Value = string.Format("{0}", row["Plant"].ToString());
+            worksheet.Cell("D" + i).Value = string.Format("{0}", row["Batchsap"].ToString());
             worksheet.Cell("E" + i).Value = row["NCPID"].ToString();
             worksheet.Cell("F" + i).Value = row["Decision"].ToString() != "" || row["FirstDecision"].ToString() != "" ? "P" : "";
-            worksheet.Cell("G" + i).Value = string.Format("'{0}", row["DateFirstDecision"].ToString());
+            worksheet.Cell("G" + i).Value = string.Format("{0}", row["DateFirstDecision"].ToString());
             worksheet.Cell("G" + i).Style.Font.FontSize = 8;
             worksheet.Cell("H" + i).Value = row["TimeFirstDecision"].ToString();
-            worksheet.Cell("I" + i).Value = string.Format("'{0}", row["DateDecision"].ToString()).Replace('/', '.');
+            worksheet.Cell("I" + i).Value = string.Format("{0}", row["DateDecision"].ToString()).Replace('/', '.');
             worksheet.Cell("J" + i).Value = row["TimeDecision"].ToString();
             worksheet.Cell("K" + i).Value = row["FirstDecision"].ToString();
             worksheet.Cell("L" + i).Value = row["Decision"].ToString();
@@ -193,8 +325,45 @@ public class ServiceCS : System.Web.Services.WebService
             //worksheet.Cell("R" + i).Value = row["CostNo"].ToString();
         }
         //workbook.SaveAs(@"C:\temp\MinPrice.xlsx");
-        workbook.SaveAs(@"C:\\Users\fo5910155\Documents\Winshuttle\Studio\Data\ZTHWM_SL020_NCP_UPDATE_20180621_140330.xlsx");
+        //workbook.SaveAs(@"C:\\Users\fo5910155\Documents\Winshuttle\Studio\Data\ZTHWM_SL020_NCP_UPDATE_20180621_140330.xlsx");
     }
+    //void ExportToresult(string Data)
+    //{
+    //    var workbook = new XLWorkbook(); int col = 2;
+    //    var worksheet = workbook.Worksheets.Add("ZTHWM_NCP_UPDATE");
+    //    //MinPrice
+    //    var Results = new DataTable();//spGetHistory
+    //    SqlParameter[] param = { new SqlParameter("@user", string.Format("{0}", CurUserName)) };
+    //    Results = cs.GetRelatedResources("spSQLinterfaceWinCreate", param);
+    //    worksheet.Column(7).Width = 20;
+    //    foreach (DataRow row in Results.Rows)
+    //    {
+    //        var i = col++;
+    //        worksheet.Cell("B" + i).Value = string.Format("'{0}", row["material"].ToString());
+    //        worksheet.Cell("C" + i).Value = string.Format("'{0}", row["Plant"].ToString());
+    //        worksheet.Cell("D" + i).Value = string.Format("'{0}", row["Batchsap"].ToString());
+    //        worksheet.Cell("E" + i).Value = row["NCPID"].ToString();
+    //        worksheet.Cell("F" + i).Value = row["Decision"].ToString() != "" || row["FirstDecision"].ToString() != "" ? "P" : "";
+    //        worksheet.Cell("G" + i).Value = string.Format("'{0}", row["DateFirstDecision"].ToString());
+    //        worksheet.Cell("G" + i).Style.Font.FontSize = 8;
+    //        worksheet.Cell("H" + i).Value = row["TimeFirstDecision"].ToString();
+    //        worksheet.Cell("I" + i).Value = string.Format("'{0}", row["DateDecision"].ToString()).Replace('/', '.');
+    //        worksheet.Cell("J" + i).Value = row["TimeDecision"].ToString();
+    //        worksheet.Cell("K" + i).Value = row["FirstDecision"].ToString();
+    //        worksheet.Cell("L" + i).Value = row["Decision"].ToString();
+    //        worksheet.Cell("M" + i).Value = row["Problem"].ToString();
+    //        worksheet.Cell("N" + i).Value = row["Remark"].ToString();
+
+    //        //worksheet.Cell("M" + i).Value = row["Currency"].ToString();
+    //        //worksheet.Cell("N" + i).Value = row["PricingUnit"].ToString();
+    //        //worksheet.Cell("O" + i).Value = row["SalesUnit"].ToString();
+    //        //worksheet.Cell("P" + i).Value = string.Format("'{0}", row["RequestDate"].ToString());
+    //        //worksheet.Cell("Q" + i).Value = string.Format("'{0}", row["RequireDate"].ToString());
+    //        //worksheet.Cell("R" + i).Value = row["CostNo"].ToString();
+    //    }
+    //    //workbook.SaveAs(@"C:\temp\MinPrice.xlsx");
+    //    workbook.SaveAs(@"C:\\Users\fo5910155\Documents\Winshuttle\Studio\Data\ZTHWM_SL020_NCP_UPDATE_20180621_140330.xlsx");
+    //}
    
     [WebMethod]
     public void uploadfile(string file, string Doc, string username,
@@ -477,6 +646,44 @@ public class ServiceCS : System.Web.Services.WebService
         }
         Context.Response.Write("success");
     }
+
+    [WebMethod]
+    public void saveCertEU(string obj)
+    {
+        dynamic dynJson = JsonConvert.DeserializeObject(obj);
+
+        List<ObjCertEU> item = new List<ObjCertEU>();
+        using (SqlConnection con = new SqlConnection(strConn))
+        {
+            foreach (var ro in dynJson)
+            {
+                string query = @"insert into transCertEU values (@Material,@Batch,@Plant,@InvoiceNo,format(Getdate(),'dd-MMM-yyyy HH:mm:ss'),@Production,
+                    @Quantity,@BaseUoM,@Vessel,@FAO,@Aging,@StatusApp);
+                        ";
+                using (SqlCommand cmd = new SqlCommand(query))
+                {
+                    cmd.Connection = con;
+                    cmd.Parameters.AddWithValue("@Material", ro.Material);
+                    cmd.Parameters.AddWithValue("@Batch", ro.Batch);
+                    cmd.Parameters.AddWithValue("@Plant", ro.Plant);
+                    cmd.Parameters.AddWithValue("@InvoiceNo", ro.InvoiceNo);
+                    cmd.Parameters.AddWithValue("@DateOfManuf", ro.DateOfManuf);
+                    cmd.Parameters.AddWithValue("@Production", ro.Production);
+                    cmd.Parameters.AddWithValue("@Quantity", ro.Quantity);
+                    cmd.Parameters.AddWithValue("@BaseUoM", ro.BaseUoM);
+                    cmd.Parameters.AddWithValue("@Vessel", ro.Vessel);
+                    cmd.Parameters.AddWithValue("@FAO", ro.FAO);
+                    cmd.Parameters.AddWithValue("@Aging", ro.Aging);
+                    cmd.Parameters.AddWithValue("@StatusApp", ro.StatusApp);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+        Context.Response.Write("success");
+    }
+
     [WebMethod]
     public string LetterGradeFromNumber(int marks)
     {
@@ -1838,6 +2045,22 @@ public class soapActionObject
     public string Shift { get; set; }
     public string Product { get; set; }
     public string Problem { get; set; }
+}
+public class ObjCertEU
+{
+    public string Material { get; set; }
+    public string Batch { get; set; }
+    public string Plant { get; set; }
+    public string InvoiceNo { get; set; }
+    public string DateOfManuf { get; set; }
+    public string Production { get; set; }
+    public string Quantity { get; set; }
+
+    public string BaseUoM { get; set; }
+    public string Vessel { get; set; }
+    public string FAO { get; set; }
+    public string Aging { get; set; }
+    public string StatusApp { get; set; }
 }
 public class Objattachment
 {
